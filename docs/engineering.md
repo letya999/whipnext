@@ -48,7 +48,6 @@ whipnext/
 ├── assets/ui/           settings atoms/molecules/organisms
 ├── docs/                product, engineering, quality, architecture
 ├── .github/workflows/   GitHub Actions CI
-├── .repo-safety/        local secret/SAST guardrails
 ├── justfile             command surface
 └── AGENTS.md            agent instructions
 ```
@@ -91,7 +90,7 @@ A change is not done until `just check` passes.
 
 | Platform | Script | Result |
 | --- | --- | --- |
-| Windows | `scripts/install_windows.ps1` (via `just install-windows`) | exe with baked icon in `%LOCALAPPDATA%\whipnext`, Start Menu shortcut with `System.AppUserModel.ID = whipnext.app` |
+| Windows | `scripts/install_windows.cmd` (via `just install-windows`) | release exe and bundled assets in `%LOCALAPPDATA%\whipnext` |
 | Linux/X11 | `bash scripts/package_linux.sh [install]` | dist dir; `install` puts binary in `~/.local/share/whipnext`, `.desktop` + hicolor icon in `~/.local/share` (`StartupWMClass=whipnext`) |
 | macOS | `scripts/package_macos.sh` | `dist/Whipnext.app` bundle with icns icon and bundled assets |
 
