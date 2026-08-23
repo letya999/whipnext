@@ -44,7 +44,7 @@ dev: build
 build:
     cargo build --release
 
-# Install to %LOCALAPPDATA%\whipnext + Start Menu shortcut (Windows).
+# Install to %LOCALAPPDATA%\whipnext (Windows).
 install-windows:
     scripts\install_windows.cmd
 

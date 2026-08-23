@@ -68,7 +68,7 @@ Lead with the answer, then only needed detail. Short, plain words. No jargon unl
 - Add a model by dropping `assets/pack/models/<id>/manifest.json` plus frames/video/sounds. Do not hardcode a new character id in Rust unless detect/routing needs it.
 - Overlay size, tick, and scale bounds: `src/layout.rs` only. Phrase lines: pack `phrases.json`, not a second Rust list.
 - OS FFI stays in `src/*_tests.rs` (Win32, WebView, SendInput, binary entry) so llvm-cov ignores those files. Domain stays in the other `src/*.rs` files.
-- Human-facing Russian copy lives only in `README.md` and settings UI i18n. Every other doc, comment, commit message, and agent-facing file is English.
+- Human-facing Russian copy lives only in `README.ru.md` and settings UI i18n. Every other doc, comment, commit message, and agent-facing file is English.
 - Default branch: `dev`. Branch from `dev` only. `feature/*` → `dev` → `main`. `main` is protected. After clone: `git config core.hooksPath .githooks`.
 - Do not commit `/target`, `/target-fix`, `/target-fix2`, `node_modules`, `.env`, keys, or WebView2 user-data folders.
 - Do not add a framework, extra crate, or GitHub workflow unless asked.
