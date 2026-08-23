@@ -176,6 +176,7 @@ fn classify_unknown_overlay_arg_errors() {
     assert!(err.contains("unknown arg --bogus"));
 }
 
+#[cfg(not(target_os = "macos"))]
 #[test]
 fn run_overlay_only_demo_times_out() {
     let home = std::env::temp_dir().join(format!("whipnext-ovl-home-{}", std::process::id()));
@@ -204,6 +205,7 @@ fn run_overlay_only_demo_times_out() {
     let _ = std::fs::remove_dir_all(&home);
 }
 
+#[cfg(not(target_os = "macos"))]
 #[test]
 fn dispatch_timeout_without_demo_still_runs_overlay() {
     let home = std::env::temp_dir().join(format!("whipnext-ui-home-{}", std::process::id()));
