@@ -104,6 +104,8 @@ jobs:
         uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
 
       - name: Install ffmpeg
+        env:
+          HOMEBREW_NO_REQUIRE_TAP_TRUST: 1
         run: brew list ffmpeg >/dev/null 2>&1 || brew install ffmpeg
 
       - name: Set up Node.js
