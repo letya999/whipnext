@@ -1,0 +1,25 @@
+#!/bin/sh
+# main is protected: only merge commits from the tip of dev are allowed.
+branch=$(git symbolic-ref --short HEAD 2>/dev/null) || exit 0
+[ "$branch" = "main" ] || exit 0
+
+gitdir=$(git rev-parse --git-dir)
+if [ -f "$gitdir/MERGE_HEAD" ]; then
+  if ! git rev-parse --verify dev >/dev/null 2>&1; then
+    echo "main is protected: branch 'dev' does not exist."
+    exit 1
+  fi
+  expected=$(git rev-parse dev)
+  actual=$(git rev-parse MERGE_HEAD)
+  if [ "$actual" != "$expected" ]; then
+    echo "main is protected: merge only from the tip of 'dev'."
+    echo "  MERGE_HEAD=$actual"
+    echo "  dev       =$expected"
+    exit 1
+  fi
+  exit 0
+fi
+
+echo "main is protected. Do not commit on main."
+echo "Branch from dev, merge the feature into dev, then merge dev into main."
+exit 1

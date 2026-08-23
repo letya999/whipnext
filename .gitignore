@@ -1,0 +1,52 @@
+/target
+/target-fix
+/target-fix2
+node_modules/
+**/*.rs.bk
+*.pdb
+*.ilk
+*.exp
+*.lib
+Cargo.lock.bak
+
+# Local / OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+*~
+
+# Secrets and local env (never commit)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa
+id_ed25519
+credentials*.json
+service-account*.json
+secrets.json
+token.json
+tokens.json
+
+# WebView2 user data next to a built exe
+**/*.exe.WebView2/
+**/*.WebView2/
+
+# IDE / editor
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Local analysis and design review artifacts
+.ruff_cache/
+.impeccable/
+.playwright-mcp/
+.serena/
+/dist

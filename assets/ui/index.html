@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="dark" />
+<title>whipnext</title>
+<link rel="icon" href="/icon.ico" />
+<link rel="stylesheet" href="/ui/atoms/atoms.css" />
+<link rel="stylesheet" href="/ui/molecules/molecules.css" />
+<link rel="stylesheet" href="/ui/organisms/organisms.css" />
+<link rel="stylesheet" href="/ui/layouts/settings-layout.css" />
+</head>
+<body>
+<!--
+THESIS: Assemble a cursor character and assign it per harness — not a gallery of identical cards.
+OWN-WORLD: Charcoal desk, amber strike, Segoe UI, tight labeled controls.
+STORY: Manage character media and sounds on the left; configure harness detection and overlay behavior on the right.
+FIRST VIEWPORT: Character library and editor on the left; harness and overlay settings on the right.
+FORM: Operate / atomic layouts (templates) of organisms of molecules of atoms.
+FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+-->
+<div class="layout-settings" data-layout="settings">
+  <header class="layout-header">
+    <img id="logo" alt="" width="40" height="40" src="/icon-256.png" />
+    <div class="layout-header-text">
+      <h1 id="ui_title">whipnext</h1>
+      <p id="ui_tagline">Клик по персонажу пишет его фразу в сфокусированный харнесс. По умолчанию — <code>next</code>.</p>
+    </div>
+    <div class="layout-lang" role="group">
+      <button type="button" class="atom-btn" id="lang_ru">RU</button>
+      <button type="button" class="atom-btn" id="lang_en">EN</button>
+    </div>
+  </header>
+  <main class="layout-main">
+    <section class="layout-primary" id="org-builder" data-organism="character-builder"></section>
+    <aside class="layout-side">
+      <section id="org-harness" data-organism="harness-assign"></section>
+      <section id="org-overlay" data-organism="overlay-controls"></section>
+    </aside>
+  </main>
+  <footer class="layout-foot" id="org-foot" data-organism="session-bar"></footer>
+</div>
+<script src="/ui/i18n.js"></script>
+<script src="/ui/atoms/atoms.js"></script>
+<script src="/ui/molecules/molecules.js"></script>
+<script src="/ui/organisms/organisms.js"></script>
+<script src="/ui/gltf-view.js"></script>
+<script src="/ui/app.js"></script>
+</body>
+</html>

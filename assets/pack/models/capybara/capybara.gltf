@@ -1,0 +1,252 @@
+{
+  "asset": {
+    "version": "2.0",
+    "generator": "whipnext"
+  },
+  "scene": 0,
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "name": "capybara",
+      "translation": [
+        0,
+        0.2,
+        0
+      ]
+    }
+  ],
+  "meshes": [
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1
+          },
+          "indices": 2,
+          "material": 0
+        }
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "name": "fur",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.62,
+          0.38,
+          0.22,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.85
+      }
+    }
+  ],
+  "animations": [
+    {
+      "name": "headbutt-cycle",
+      "channels": [
+        {
+          "sampler": 0,
+          "target": {
+            "node": 0,
+            "path": "rotation"
+          }
+        },
+        {
+          "sampler": 1,
+          "target": {
+            "node": 0,
+            "path": "translation"
+          }
+        }
+      ],
+      "samplers": [
+        {
+          "input": 3,
+          "output": 4,
+          "interpolation": "LINEAR"
+        },
+        {
+          "input": 3,
+          "output": 5,
+          "interpolation": "LINEAR"
+        }
+      ]
+    },
+    {
+      "name": "idle",
+      "channels": [
+        {
+          "sampler": 0,
+          "target": {
+            "node": 0,
+            "path": "rotation"
+          }
+        },
+        {
+          "sampler": 1,
+          "target": {
+            "node": 0,
+            "path": "translation"
+          }
+        }
+      ],
+      "samplers": [
+        {
+          "input": 6,
+          "output": 7,
+          "interpolation": "LINEAR"
+        },
+        {
+          "input": 6,
+          "output": 8,
+          "interpolation": "LINEAR"
+        }
+      ]
+    }
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 555,
+      "type": "VEC3",
+      "min": [
+        -1.7,
+        -0.8300000000000001,
+        -0.58
+      ],
+      "max": [
+        1.15,
+        0.78,
+        0.58
+      ]
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 555,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5123,
+      "count": 2352,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 5,
+      "type": "SCALAR",
+      "min": [
+        0.0
+      ],
+      "max": [
+        1.6
+      ]
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5126,
+      "count": 5,
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 5,
+      "componentType": 5126,
+      "count": 5,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 6,
+      "componentType": 5126,
+      "count": 5,
+      "type": "SCALAR",
+      "min": [
+        0.0
+      ],
+      "max": [
+        2.0
+      ]
+    },
+    {
+      "bufferView": 7,
+      "componentType": 5126,
+      "count": 5,
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 8,
+      "componentType": 5126,
+      "count": 5,
+      "type": "VEC3"
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteOffset": 0,
+      "byteLength": 6660,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 6660,
+      "byteLength": 6660,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 13320,
+      "byteLength": 4704,
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 18024,
+      "byteLength": 20
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 18044,
+      "byteLength": 80
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 18124,
+      "byteLength": 60
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 18184,
+      "byteLength": 20
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 18204,
+      "byteLength": 80
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 18284,
+      "byteLength": 60
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 18344,
+      "uri": "capybara.bin"
+    }
+  ]
+}

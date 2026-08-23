@@ -1,0 +1,15 @@
+{
+  "id": "capybara",
+  "name": "Capybara",
+  "still": "capybara.gltf",
+  "idle": [
+    "idle"
+  ],
+  "action": [
+    "headbutt-cycle"
+  ],
+  "sound_action": "paw",
+  "sound_next": "next",
+  "source": "capybara.gltf",
+  "media_kind": "3d"
+}

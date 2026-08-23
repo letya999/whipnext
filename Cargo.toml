@@ -1,0 +1,27 @@
+[package]
+name = "whipnext"
+version = "0.1.0"
+edition = "2021"
+description = "Cross-platform cursor whip that injects next into the live coding-agent session"
+license = "MIT"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+image = { version = "0.25", default-features = false, features = ["png", "jpeg", "gif"] }
+minifb = "0.28"
+wry = "0.53"
+tao = "0.34"
+
+[build-dependencies]
+winresource = "0.1.31"
+
+[profile.dev]
+opt-level = 1
+
+[[bin]]
+name = "whipnext"
+path = "src/main_tests.rs"
+
+[package.metadata.cargo-llvm-cov]
+fail-under-lines = 100

@@ -1,0 +1,2 @@
+fail-under-lines = 100
+ignore-filename-regex = "_tests\\.rs"

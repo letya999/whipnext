@@ -1,0 +1,9 @@
+{
+  "id": "parrot",
+  "name": "Parrot",
+  "still": "still.png",
+  "idle": ["idle_00.png", "idle_01.png"],
+  "action": ["action_00.png", "action_01.png", "action_02.png", "action_03.png"],
+  "sound_action": "ready",
+  "sound_next": "next"
+}

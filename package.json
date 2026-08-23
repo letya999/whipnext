@@ -1,0 +1,11 @@
+{
+  "name": "whipnext-ui",
+  "private": true,
+  "description": "Settings UI lint for whipnext",
+  "scripts": {
+    "lint": "eslint assets/ui"
+  },
+  "devDependencies": {
+    "eslint": "^9.16.0"
+  }
+}

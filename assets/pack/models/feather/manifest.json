@@ -1,0 +1,15 @@
+{
+  "id": "feather",
+  "name": "Feather",
+  "still": "still.gif",
+  "idle": [
+    "idle.gif"
+  ],
+  "action": [
+    "action.gif"
+  ],
+  "sound_action": "paw",
+  "sound_next": "next",
+  "source": "idle.gif",
+  "media_kind": "gif"
+}

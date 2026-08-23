@@ -1,0 +1,6 @@
+[
+  { "id": "plotva", "locale": "ru", "text": "шевелись плотва, дальше", "sound": "whip" },
+  { "id": "nu-chto", "locale": "ru", "text": "ну что там?", "sound": "ready" },
+  { "id": "next", "locale": "en", "text": "next", "sound": "next" },
+  { "id": "go-ahead", "locale": "en", "text": "go ahead", "sound": "paw" }
+]

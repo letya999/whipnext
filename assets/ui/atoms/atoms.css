@@ -1,0 +1,86 @@
+:root {
+  --bg: #12141a;
+  --surface: #1b1e27;
+  --surface-2: #222632;
+  --line: #3a4154;
+  --text: #f2f4fa;
+  --muted: #c2c8d8;
+  --accent: #e8b15a;
+  --accent-ink: #1a1408;
+  --ok: #3dcf8a;
+  --danger: #e06c75;
+  --focus: #8cb4ff;
+  --control-scale: 1;
+  --ctl-h: calc(32px * var(--control-scale));
+  --radius: 10px;
+  --space: 8px;
+}
+* { box-sizing: border-box; }
+html { color-scheme: dark; background: var(--bg); }
+html, body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font: 14px/1.4 "Segoe UI", system-ui, sans-serif;
+}
+::selection { background: var(--accent); color: var(--accent-ink); }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+button, input, select, textarea {
+  font: inherit;
+  color: var(--text);
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.atom-btn {
+  min-height: var(--ctl-h);
+  padding: 0 12px;
+  cursor: pointer;
+  color: var(--text);
+}
+.atom-btn:hover { border-color: var(--accent); }
+.atom-btn:disabled { opacity: .45; cursor: not-allowed; }
+.atom-btn-primary {
+  background: var(--accent);
+  color: var(--accent-ink);
+  border-color: transparent;
+  font-weight: 650;
+}
+.atom-sw {
+  width: calc(42px * var(--control-scale));
+  height: calc(24px * var(--control-scale));
+  border-radius: 99px;
+  background: #3a4258;
+  border: 0;
+  padding: 0;
+  position: relative;
+  cursor: pointer;
+}
+.atom-sw i {
+  position: absolute;
+  top: 3px; left: 3px;
+  width: calc(18px * var(--control-scale));
+  height: calc(18px * var(--control-scale));
+  border-radius: 50%;
+  background: #fff;
+}
+.atom-sw.on { background: #1f7a4d; }
+.atom-sw.on i { left: calc(21px * var(--control-scale)); background: var(--ok); }
+.atom-input, .atom-select, .atom-file {
+  width: 100%;
+  min-height: var(--ctl-h);
+  padding: 0 10px;
+}
+.atom-file::file-selector-button { margin-right: 8px; padding: 4px 8px; cursor: pointer; color: var(--text); background: var(--surface-2); border: 1px solid var(--line); border-radius: 6px; }
+.atom-range { width: 100%; accent-color: var(--accent); }
+.atom-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 650;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+.atom-code { color: var(--accent); font-family: ui-monospace, Consolas, monospace; }
+.atom-hint { color: var(--muted); font-size: 12.5px; margin: 6px 0 0; }
+.atom-err { color: var(--danger); font-size: 12.5px; margin: 6px 0 0; }

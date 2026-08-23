@@ -1,0 +1,19 @@
+{
+  "id": "lash",
+  "name": "Lash",
+  "still": "still.svg",
+  "idle": [
+    "idle_00.svg",
+    "idle_01.svg"
+  ],
+  "action": [
+    "action_00.svg",
+    "action_01.svg",
+    "action_02.svg",
+    "action_03.svg"
+  ],
+  "sound_action": "whip",
+  "sound_next": "next",
+  "source": "still.svg",
+  "media_kind": "svg"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "cli:agent:list",
+  "result": {
+    "type": "agent_list",
+    "agents": [
+      {
+        "agent": "codex",
+        "name": "orchestrator",
+        "pane_id": "wG:p2",
+        "focused": false,
+        "cwd": "C:\\proj-a",
+        "agent_session": { "agent": "codex", "kind": "id", "value": "sess-codex-2" }
+      },
+      {
+        "agent": "grok",
+        "name": "worker-1",
+        "pane_id": "wG:p4",
+        "focused": true,
+        "cwd": "C:\\proj-a",
+        "agent_session": { "agent": "grok", "kind": "id", "value": "front-grok" }
+      },
+      {
+        "agent": "claude",
+        "pane_id": "wG:p9",
+        "focused": false,
+        "cwd": "C:\\proj-b",
+        "agent_session": { "agent": "claude", "kind": "id", "value": "sess-claude" }
+      }
+    ]
+  }
+}

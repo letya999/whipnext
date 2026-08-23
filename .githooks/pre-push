@@ -1,0 +1,48 @@
+#!/bin/sh
+# Block pushes that update main to something that is not current dev
+# (or a merge of current dev into main).
+remote="$1"
+url="$2"
+
+z40="0000000000000000000000000000000000000000"
+
+while read -r local_ref local_sha remote_ref remote_sha; do
+  case "$local_ref" in
+    refs/heads/main|refs/heads/master) ;;
+    *) continue ;;
+  esac
+
+  if [ "$local_sha" = "$z40" ]; then
+    echo "Refusing to delete protected branch main."
+    exit 1
+  fi
+
+  if ! git rev-parse --verify dev >/dev/null 2>&1; then
+    echo "Cannot push main: local branch 'dev' is missing."
+    exit 1
+  fi
+
+  dev_sha=$(git rev-parse dev)
+
+  # Allow pushing main when it points at the same commit as dev
+  # (initial bootstrap or fast-forward of main to current dev).
+  if [ "$local_sha" = "$dev_sha" ]; then
+    continue
+  fi
+
+  # Allow a merge commit on main whose second parent is current dev.
+  if git rev-parse -q --verify "${local_sha}^2" >/dev/null 2>&1; then
+    second=$(git rev-parse "${local_sha}^2")
+    if [ "$second" = "$dev_sha" ]; then
+      continue
+    fi
+  fi
+
+  echo "Refusing to push main ($local_sha)."
+  echo "main may only match dev or be a merge of current dev."
+  echo "  dev=$dev_sha"
+  echo "  remote=$remote url=$url remote_ref=$remote_ref remote_sha=$remote_sha"
+  exit 1
+done
+
+exit 0
