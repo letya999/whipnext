@@ -176,6 +176,7 @@ fn classify_unknown_overlay_arg_errors() {
     assert!(err.contains("unknown arg --bogus"));
 }
 
+#[cfg_attr(target_os = "macos", ignore = "AppKit requires the main thread")]
 #[test]
 fn run_overlay_only_demo_times_out() {
     let home = std::env::temp_dir().join(format!("whipnext-ovl-home-{}", std::process::id()));
@@ -204,6 +205,7 @@ fn run_overlay_only_demo_times_out() {
     let _ = std::fs::remove_dir_all(&home);
 }
 
+#[cfg_attr(target_os = "macos", ignore = "AppKit requires the main thread")]
 #[test]
 fn dispatch_timeout_without_demo_still_runs_overlay() {
     let home = std::env::temp_dir().join(format!("whipnext-ui-home-{}", std::process::id()));
