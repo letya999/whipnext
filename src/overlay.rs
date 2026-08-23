@@ -802,6 +802,13 @@ pub fn run_overlay(opts: LaunchOpts) -> Result<(), String> {
     let mut engine =
         OverlayEngine::from_skin(skin, machine, opts.settings.clone(), Instant::now(), root)?;
     engine.catalog_root = catalog;
+    if opts
+        .quit
+        .as_ref()
+        .is_some_and(|quit| quit.load(Ordering::Relaxed))
+    {
+        return Ok(());
+    }
     dpi_aware();
     #[cfg(windows)]
     {
