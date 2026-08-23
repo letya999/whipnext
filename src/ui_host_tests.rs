@@ -49,6 +49,7 @@ extern "system" {
     fn get_module_handle(name: *const u16) -> isize;
 }
 
+#[cfg(windows)]
 #[link(name = "user32")]
 extern "system" {
     #[link_name = "LoadImageW"]
