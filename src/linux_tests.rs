@@ -30,7 +30,8 @@ pub fn tty_path(pid: u32) -> PathBuf {
 pub fn inject_text(pid: u32, text: &str) -> std::io::Result<()> {
     let mut f = std::fs::OpenOptions::new()
         .write(true)
-        .open(tty_path(pid))?;
+        .open(tty_path(pid))
+        .map_err(|e| std::io::Error::new(e.kind(), format!("pid {pid}: {e}")))?;
     f.write_all(text.as_bytes())?;
     f.write_all(b"\n")
 }

@@ -15,7 +15,7 @@ jobs:
       - name: Require the repository dev branch
         env:
           HEAD_REF: ${{ github.head_ref }}
-          HEAD_REPOSITORY: ${{ github.head_repository.full_name }}
+          HEAD_REPOSITORY: ${{ github.event.pull_request.head.repo.full_name }}
           BASE_REPOSITORY: ${{ github.repository }}
         run: |
           if [[ "$HEAD_REF" != "dev" || "$HEAD_REPOSITORY" != "$BASE_REPOSITORY" ]]; then

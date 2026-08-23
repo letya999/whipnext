@@ -1,4 +1,4 @@
-set windows-shell := ["powershell.exe", "-NoLogo", "-Command"]
+set windows-shell := ["cmd.exe", "/d", "/c"]
 set dotenv-load := false
 
 default:
@@ -46,7 +46,7 @@ build:
 
 # Install to %LOCALAPPDATA%\whipnext + Start Menu shortcut (Windows).
 install-windows:
-    powershell -NoProfile -ExecutionPolicy Bypass -File scripts\install_windows.ps1
+    scripts\install_windows.cmd
 
 # Remove all Cargo build artifacts.
 clean:

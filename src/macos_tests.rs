@@ -95,7 +95,13 @@ pub fn running_processes() -> Vec<(u32, String)> {
         .collect()
 }
 
-pub fn inject_text(_pid: u32, text: &str) -> std::io::Result<()> {
+pub fn inject_text(pid: u32, text: &str) -> std::io::Result<()> {
+    if !process_snapshot().iter().any(|p| p.pid == pid) {
+        return Err(std::io::Error::new(
+            std::io::ErrorKind::NotFound,
+            format!("pid {pid} is not running"),
+        ));
+    }
     unsafe {
         for ch in text.chars() {
             let mut utf16 = [0u16; 2];

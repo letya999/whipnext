@@ -12,7 +12,7 @@ Thanks for helping with whipnext.
 
 Requirements: Rust and Cargo, `just`, Node.js, and npm. `ffmpeg` is also needed for video pack tests and video imports. Linux development currently requires X11, `xdotool`, GTK 3, and WebKitGTK 4.1; macOS input tests require Accessibility permission.
 
-```powershell
+```text
 just setup
 just check
 ```

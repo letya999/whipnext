@@ -45,8 +45,8 @@ tokens.json
 *.log
 
 # Local analysis and design review artifacts
-.ruff_cache/
 .impeccable/
 .playwright-mcp/
 .serena/
+/.repo-safety/
 /dist

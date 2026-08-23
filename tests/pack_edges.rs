@@ -1,6 +1,8 @@
 use std::fs;
 use std::path::PathBuf;
 
+mod common;
+
 use whipnext::pack::{
     catalog_dir, default_manifest, frame_paths, gltf_source, import_character,
     import_character_bytes, import_sound_bytes, list_lines, list_model_ids, list_models,
@@ -390,7 +392,7 @@ fn lines_merge_phrases_json_and_loose_wavs() {
 
 #[test]
 fn import_3d_copies_gltf_bin_without_png_frames() {
-    let src = PathBuf::from(r"C:\Users\User\whipnext-user-drop");
+    let src = common::nugget_fixture();
     let catalog = std::env::temp_dir().join(format!("whipnext-user-cat-{}", std::process::id()));
     let _ = fs::remove_dir_all(&catalog);
     assert!(
@@ -556,14 +558,9 @@ fn import_bytes_roles_and_empty_sound_stem() {
     let wav =
         fs::read(PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("assets/pack/sounds/paw.wav"))
             .unwrap();
-    let gltf = fs::read(PathBuf::from(
-        r"C:\Users\User\whipnext-user-drop\nugget\nugget.gltf",
-    ))
-    .unwrap();
-    let bin = fs::read(PathBuf::from(
-        r"C:\Users\User\whipnext-user-drop\nugget\nugget.bin",
-    ))
-    .unwrap();
+    let src = common::nugget_fixture();
+    let gltf = fs::read(src.join("nugget/nugget.gltf")).unwrap();
+    let bin = fs::read(src.join("nugget/nugget.bin")).unwrap();
     let m = import_character_bytes(
         &catalog,
         "Mix",
@@ -694,13 +691,14 @@ fn import_bytes_roles_and_empty_sound_stem() {
 
     let still_gltf = root("still3d");
     fs::create_dir_all(still_gltf.join("models/g")).unwrap();
+    let src = common::nugget_fixture();
     fs::copy(
-        PathBuf::from(r"C:\Users\User\whipnext-user-drop\nugget\nugget.gltf"),
+        src.join("nugget/nugget.gltf"),
         still_gltf.join("models/g/hero.gltf"),
     )
     .unwrap();
     fs::copy(
-        PathBuf::from(r"C:\Users\User\whipnext-user-drop\nugget\nugget.bin"),
+        src.join("nugget/nugget.bin"),
         still_gltf.join("models/g/nugget.bin"),
     )
     .unwrap();

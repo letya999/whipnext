@@ -21,14 +21,18 @@ pub fn live_inject_with_dev(
 }
 
 pub fn command_hidden(bin: &str) -> std::process::Command {
-    let mut c = std::process::Command::new(bin);
     #[cfg(windows)]
     {
+        let mut c = std::process::Command::new(bin);
         use std::os::windows::process::CommandExt;
         const CREATE_NO_WINDOW: u32 = 0x08000000;
         c.creation_flags(CREATE_NO_WINDOW);
+        c
     }
-    c
+    #[cfg(not(windows))]
+    {
+        std::process::Command::new(bin)
+    }
 }
 
 pub fn spawn_herdr(bin: &str, args: &[String]) -> Result<(), String> {

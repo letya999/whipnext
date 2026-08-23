@@ -91,13 +91,19 @@ Character files live in `assets/pack/models/<id>/`; sounds live in `assets/pack/
 
 ## Development
 
-```powershell
+```text
 just setup
 just check
 just detect       # optional live smoke test
 ```
 
 Tests run serially because some checks temporarily override process-wide environment variables. CI builds and tests Windows, Linux/X11, and macOS.
+
+## Repository language snapshot
+
+Historical GitHub snapshot from before the cleanup of auxiliary scripts:
+
+![Repository language snapshot](docs/language-stats.png)
 
 ## Contributing and security
 
