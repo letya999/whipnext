@@ -41,6 +41,9 @@ jobs:
           toolchain: 1.96.1
           components: rustfmt, clippy
 
+      - name: Install ffmpeg
+        run: where ffmpeg >nul 2>nul || choco install ffmpeg --no-progress -y
+
       - name: Install just
         run: cargo install just --version 1.56.0 --locked
 

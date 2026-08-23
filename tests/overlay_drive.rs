@@ -2,6 +2,8 @@ use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::{Arc, Mutex};
 use std::time::{Duration, Instant};
 
+mod common;
+
 use whipnext::focus::{overlay_surface, Foreground, Proc};
 use whipnext::inject::NEXT_PROMPT;
 use whipnext::kind::Kind;
@@ -1406,7 +1408,7 @@ fn broken_3d_falls_back_to_default_and_default_3d_errors() {
 
 #[test]
 fn user_drop_nugget_builds_overlay_skin() {
-    let src = std::path::PathBuf::from(r"C:\Users\User\whipnext-user-drop\nugget\nugget.gltf");
+    let src = common::nugget_fixture().join("nugget/nugget.gltf");
     assert!(src.is_file());
     let catalog = std::env::temp_dir().join(format!("whipnext-nug-skin-{}", std::process::id()));
     let _ = std::fs::remove_dir_all(&catalog);
@@ -1461,7 +1463,7 @@ fn invalid_3d_manifest_still_loads_gltf() {
     let _ = std::fs::remove_dir_all(&root);
     let dir = root.join("models/tri");
     std::fs::create_dir_all(&dir).unwrap();
-    let src = std::path::PathBuf::from(r"C:\Users\User\whipnext-user-drop\nugget");
+    let src = common::nugget_fixture().join("nugget");
     std::fs::copy(src.join("nugget.gltf"), dir.join("nugget.gltf")).unwrap();
     std::fs::copy(src.join("nugget.bin"), dir.join("nugget.bin")).unwrap();
     std::fs::write(dir.join("manifest.json"), "not-json").unwrap();
